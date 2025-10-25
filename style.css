@@ -83,6 +83,27 @@ body {
     background-color: #e9ecef;
 }
 
+/* Mobile nav toggle (hidden on desktop) */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #333;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+/* When header has nav-open class show nav on small screens */
+.header.nav-open .main-nav {
+    display: block;
+}
+
+.main-nav { /* default container for navigation */
+    display: block;
+}
+
 /* Downloader Selection */
 .downloader-selection {
     margin-bottom: 30px;
@@ -712,17 +733,54 @@ kbd {
 /* Responsive Design */
 @media (max-width: 768px) {
     .header {
-        flex-direction: column;
-        gap: 20px;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 18px;
+    }
+
+    /* Show a compact nav toggle button on mobile */
+    .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Hide the main nav by default on smaller screens; toggle will open it */
+    .main-nav {
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .header.nav-open .main-nav {
+        display: block;
     }
 
     .main-nav ul {
-        justify-content: center;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .main-nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 10px 12px;
     }
 
     .downloader-options {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
+
+    /* Slightly reduce brand sizes on smaller screens */
+    .brand-logo i { font-size: 1.8rem; margin-right: 10px; }
+    .brand-text h1 { font-size: 1.1rem; }
+    .brand-text .subtitle { font-size: 0.8rem; }
 }
 
 /* Video Player Modal Styles (copied from temp version to enable popup player) */
@@ -907,5 +965,11 @@ kbd {
     
     .embedded-video {
         max-height: 60vh;
+    }
+
+    /* Footer padding tweak for small screens */
+    .footer {
+        padding: 14px 10px;
+        font-size: 0.95rem;
     }
 }
