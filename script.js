@@ -569,17 +569,6 @@ function initializeEventListeners() {
     if (viewToggleBtn) {
         viewToggleBtn.addEventListener('click', toggleViewMode);
     }
-
-    // Mobile nav toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    if (navToggle) {
-        navToggle.addEventListener('click', function(e) {
-            const header = document.querySelector('.header');
-            const expanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', String(!expanded));
-            if (header) header.classList.toggle('nav-open');
-        });
-    }
     
     // Add event listeners for dynamically created elements
     document.addEventListener('click', function(e) {
