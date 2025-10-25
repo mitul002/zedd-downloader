@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zedd Video Downloader</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="cont
+    ainer">
+        <header class="header">
+            <div class="brand">
+                <a href="#" class="brand-link">
+                    <div class="brand-logo">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1>Zedd Video Downloader</h1>
+                        <p class="subtitle">Download videos from various platforms</p>
+                    </div>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#how-to">How To Use</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main">
+            <div class="downloader-selection">
+                <h2></h2>
+                <div class="downloader-options">
+                    <div class="downloader-card active" data-downloader="facebook">
+                        <div class="downloader-icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <h3>Facebook</h3>
+                        <p>Private videos via source code</p>
+                    </div>
+                    <div class="downloader-card" data-downloader="youtube">
+                        <div class="downloader-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <h3>YouTube</h3>
+                        <p>Coming Soon</p>
+                    </div>
+                    <div class="downloader-card" data-downloader="instagram">
+                        <div class="downloader-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h3>Instagram</h3>
+                        <p>Coming Soon</p>
+                    </div>
+                    <div class="downloader-card" data-downloader="twitter">
+                        <div class="downloader-icon">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </div>
+                        <h3>X</h3>
+                        <p>Coming Soon</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="downloader-forms">
+                <div id="facebook-downloader" class="downloader-form active">
+                    <div class="warning-notice">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div>
+                            <strong>Important Notice:</strong> Please ensure you have permission to download the video content. 
+                            Respect copyright laws and Facebook's terms of service.
+                        </div>
+                    </div>
+
+                    <div class="main-form">
+                        <h2><i class="fas fa-code"></i> Paste Facebook Page Source Code</h2>
+                        <form id="extractForm">
+                            <div class="textarea-container">
+                                <textarea 
+                                    id="sourceCode" 
+                                    placeholder="Paste the complete HTML source code of the Facebook page here..."
+                                    rows="15"
+                                    required
+                                ></textarea>
+                                <div class="textarea-info">
+                                    <span id="charCount">0 characters</span>
+                                    <button type="button" id="clearBtn" class="clear-btn">
+                                        <i class="fas fa-times"></i> Clear
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="extract-btn" id="extractBtn">
+                                <i class="fas fa-search"></i>
+                                <span>Extract Video Links</span>
+                                <div class="spinner" id="spinner"></div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="youtube-downloader" class="downloader-form">
+                    <div class="coming-soon">
+                        <h2><i class="fas fa-wrench"></i> YouTube Downloader is Coming Soon!</h2>
+                        <p>We are working hard to bring you this feature. Stay tuned!</p>
+                    </div>
+                </div>
+                <div id="instagram-downloader" class="downloader-form">
+                    <div class="coming-soon">
+                        <h2><i class="fas fa-wrench"></i> Instagram Downloader is Coming Soon!</h2>
+                        <p>We are working hard to bring you this feature. Stay tuned!</p>
+                    </div>
+                </div>
+                <div id="twitter-downloader" class="downloader-form">
+                    <div class="coming-soon">
+                        <h2><i class="fas fa-wrench"></i> X Downloader is Coming Soon!</h2>
+                        <p>We are working hard to bring you this feature. Stay tuned!</p>
+                    </div>
+                </div>
+            </div>
+
+           <!-- Results Section -->
+        <div class="results" id="results" style="display: none;">
+            <h2><i class="fas fa-download"></i> Available Downloads</h2>
+            <div id="videoResults"></div>
+        </div>
+
+        <!-- Error Section -->
+        <div class="error-message" id="errorMessage" style="display: none;">
+            <i class="fas fa-exclamation-circle"></i>
+            <div id="errorText"></div>
+        </div>
+
+        <!-- Instructions Section (moved to be last content before footer) -->
+        <div class="instructions" id="how-to">
+            <h2><i class="fas fa-info-circle"></i> How to Use</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Open the Private Video</h3>
+                        <p>Navigate to the Facebook page containing the private video you want to download.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>View Page Source</h3>
+                        <p>Right-click on the page and select "View Page Source" or press <kbd>Ctrl+U</kbd>.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Copy Source Code</h3>
+                        <p>Select all the HTML source code (<kbd>Ctrl+A</kbd>) and copy it (<kbd>Ctrl+C</kbd>).</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Paste and Extract</h3>
+                        <p>Paste the source code in the textarea below and click "Extract Video Links".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Zedd Video Downloader. All rights reserved.</p>
+            <p>This tool is for educational purposes only. Always respect copyright laws.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
